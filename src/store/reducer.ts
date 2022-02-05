@@ -1,17 +1,15 @@
-import * as actionTypes from "./actionTypes";
-
-const initialState: ArticleState = {
+const initialState: AppState = {
     todoData: [],
 };
 
 const reducer = (
-    state: ArticleState = initialState,
+    state: AppState = initialState,
     action: AppActions
-): ArticleState => {
+): AppState => {
     switch (action.type) {
-        case '@@itemConfiguration/one':
+        case 'LOAD_DATA':
             return { ...state, todoData: action.payload };
-        case '@@itemConfiguration/two':
+        case 'DELETE_DATA':
             const deletedTodoData = state.todoData.filter(
                 (item) => !action.payload.includes(item.id)
             );

@@ -4,20 +4,20 @@ type ITodo = {
     completed: boolean;
 }
 
-type ArticleState = {
+type AppState = {
     todoData: ITodo[]
 };
 
-type ArticleAction = {
-    type: '@@itemConfiguration/one';
+type TodoLoadAction = {
+    type: 'LOAD_DATA';
     payload: ITodo[];
 };
 
 type TodoDeleteAction = {
-    readonly type: '@@itemConfiguration/two'
+    type: 'DELETE_DATA';
     payload: number[];
 };
 
-type DispatchType = (args: ArticleAction) => ArticleAction;
+type AppActions = TodoLoadAction | TodoDeleteAction;
 
-type AppActions = ArticleAction | TodoDeleteAction
+type DispatchType = (args: AppActions) => AppActions;

@@ -16,7 +16,7 @@ const App: React.FC = () => {
     const [selectionModel, setSelectionModel] = React.useState<GridRowId[]>([]);
 
     const todoData: readonly ITodo[] = useSelector(
-        (state: ArticleState) => state.todoData,
+        (state: AppState) => state.todoData,
     );
 
     const dispatch: Dispatch<any> = useDispatch();
@@ -25,7 +25,7 @@ const App: React.FC = () => {
         dispatch(getTodoData())
     }, [dispatch])
 
-    const deleteTodoData = (data: GridRowId[]) => dispatch({ type: '@@itemConfiguration/two', payload: data });
+    const deleteTodoData = (data: GridRowId[]) => dispatch({ type: 'DELETE_DATA', payload: data });
 
     return (
         <main>
