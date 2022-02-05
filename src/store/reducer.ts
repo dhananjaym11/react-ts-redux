@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
 const initialState: ArticleState = {
+    todoData: [],
     articles: [
         {
             id: 1,
@@ -22,6 +23,12 @@ const reducer = (
     action: ArticleAction
 ): ArticleState => {
     switch (action.type) {
+        case actionTypes.ADD_DATA:
+            const newTodoData = action.payload?.slice(0, 10).map((item) => ({
+                ...item,
+                isChecked: false,
+            })) || [];
+            return { ...state, todoData: newTodoData };
         case actionTypes.ADD_ARTICLE:
             const newArticle: IArticle = {
                 id: Math.random(), // not really unique but it's just an example

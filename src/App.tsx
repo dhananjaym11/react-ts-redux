@@ -4,13 +4,17 @@ import "./App.scss";
 
 import { Article } from "./components/Article";
 import { AddArticle } from "./components/AddArticle";
-import { addArticle, removeArticle } from "./store/actionCreators";
+import { addArticle, removeArticle, getTodoData } from "./store/actionCreators";
 import { Dispatch } from "redux";
 
 const App: React.FC = () => {
   const articles: readonly IArticle[] = useSelector(
     (state: ArticleState) => state.articles,
     shallowEqual
+  );
+
+  const todoData: readonly ITodo[] = useSelector(
+    (state: ArticleState) => state.todoData,
   );
 
   const dispatch: Dispatch<any> = useDispatch();
@@ -20,11 +24,13 @@ const App: React.FC = () => {
     [dispatch]
   );
 
-  // My blog: https://www.ibrahima-ndaw.com/
+  React.useEffect(() => {
+    dispatch(getTodoData())
+  }, [dispatch])
 
   return (
     <main>
-      <h1>My Articles</h1>
+      <h1>My Articles {todoData.length}</h1>
       <AddArticle saveArticle={saveArticle} />
       {articles.map((article: IArticle) => (
         <Article
