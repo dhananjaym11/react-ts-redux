@@ -1,0 +1,6 @@
+export const ADD_DATA = 'ADD_DATA';
+export const UPDATE_CHECKBOX = 'UPDATE_CHECKBOX';
+export const DELETE_CHECKBOX = 'DELETE_CHECKBOX';
+
+export const ADD_ARTICLE = "ADD_ARTICLE";
+export const REMOVE_ARTICLE = "REMOVE_ARTICLE";
