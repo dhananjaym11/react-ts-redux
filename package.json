@@ -28,13 +28,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-console": 2,
+      "no-undef": 0
+    }
   },
   "browserslist": {
     "production": [

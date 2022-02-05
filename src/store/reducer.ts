@@ -7,15 +7,18 @@ const reducer = (
     action: AppActions
 ): AppState => {
     switch (action.type) {
-        case 'LOAD_DATA':
+        case 'LOAD_DATA': {
             return { ...state, todoData: action.payload };
-        case 'DELETE_DATA':
+        }
+        case 'DELETE_DATA': {
             const deletedTodoData = state.todoData.filter(
                 (item) => !action.payload.includes(item.id)
             );
             return { ...state, todoData: deletedTodoData };
+        }
+        default:
+            return state;
     }
-    return state;
 };
 
 export default reducer;
