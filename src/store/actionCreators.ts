@@ -1,29 +1,12 @@
 import * as actionTypes from "./actionTypes";
 
-export function addArticle(article: IArticle) {
+/*export function deleteTodoData(article: IArticle) {
     const action: ArticleAction = {
-        type: actionTypes.ADD_ARTICLE,
+        type: actionTypes.DELETE_DATA,
         article
     };
-
-    return simulateHttpRequest(action);
-}
-
-export function removeArticle(article: IArticle) {
-    const action: ArticleAction = {
-        type: actionTypes.REMOVE_ARTICLE,
-        article
-    };
-    return simulateHttpRequest(action);
-}
-
-export function simulateHttpRequest(action: ArticleAction) {
-    return (dispatch: DispatchType) => {
-        setTimeout(() => {
-            dispatch(action);
-        }, 500);
-    };
-}
+    return action;
+}*/
 
 export function getTodoData() {
     return (dispatch: DispatchType) => {
@@ -33,12 +16,9 @@ export function getTodoData() {
             .then(
                 (success) => {
                     const action: ArticleAction = {
-                        type: actionTypes.ADD_DATA,
-                        article: { id: 0, title: '', body: '' },
+                        type: '@@itemConfiguration/one',
                         payload: success,
                     };
-
-                    console.log(success);
                     dispatch(action);
                 },
                 (error) => {

@@ -1,24 +1,23 @@
-interface IArticle {
-    id: number;
-    title: string;
-    body: string;
-}
-
-interface ITodo {
+type ITodo = {
     id: number;
     title: string;
     completed: boolean;
 }
 
 type ArticleState = {
-    todoData: ITodo[],
-    articles: IArticle[];
+    todoData: ITodo[]
 };
 
 type ArticleAction = {
-    type: string;
-    article: IArticle;
-    payload?: ITodo[];
+    type: '@@itemConfiguration/one';
+    payload: ITodo[];
+};
+
+type TodoDeleteAction = {
+    readonly type: '@@itemConfiguration/two'
+    payload: number[];
 };
 
 type DispatchType = (args: ArticleAction) => ArticleAction;
+
+type AppActions = ArticleAction | TodoDeleteAction
