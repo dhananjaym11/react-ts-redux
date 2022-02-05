@@ -44,8 +44,9 @@ const App: React.FC = () => {
                         <div className="header">
                             <h1>To Do App</h1>
                             <Button
-                                variant="outlined"
+                                variant="contained"
                                 color="error"
+                                disabled={selectionModel.length === 0}
                                 onClick={() => deleteTodoData(selectionModel)}
                             >Delete</Button>
                         </div>
